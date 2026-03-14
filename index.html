@@ -115,16 +115,15 @@ color:#9ca3af;
 /* projects */
 .projects{
 display:grid;
-grid-template-columns:1fr;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:24px;
 }
 
-.project{
-padding:20px;
-border:1px solid #1f1f1f;
-border-radius:10px;
-transition:0.3s;
-position:relative;
+.project {
+text-decoration:none;
+color:inherit;
+display:block;
+cursor:pointer;
 }
 
 .project:hover{
@@ -174,9 +173,10 @@ margin-top:4px;
 }
 
 /* contact */
-.contact p{
-margin-bottom:10px;
-color:#9ca3af;
+.contact img{
+width:22px;
+vertical-align:middle;
+margin-left:6px;
 }
 
 /* footer */
@@ -307,7 +307,8 @@ I'm a Computer Science student at the University of Texas Rio Grande Valley focu
 <section id="contact" class="section reveal contact">
 <h2>Contact</h2>
 <p>Email: zachary.lopez02@utrgv.edu</p>
-<p>LinkedIn: <a href="linkedin.com/in/zachary-lopez-ba3a68315" target="_blank" style="color:#3b82f6;text-decoration:none"><img src="LinkedIn_Logo.png" alt=""></a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/zachary-lopez-ba3a68315/" target="_blank"> target="_blank" style="color:#3b82f6;text-decoration:none"><img src="LinkedIn_Logo.png" alt=""></a></p>
+<p>GitHub: <a href="https://github.com/ZaLo0305" target="_blank"><img src="GitHub_Logo.png" alt="GitHub"></a></p>
 </section>
 
 </div>
