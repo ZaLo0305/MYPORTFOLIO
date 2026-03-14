@@ -1,40 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About Me</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zachary Lopez | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
 
+<div class="cursor-glow" id="glow"></div>
+
 <header>
-  <div class="brand">
-    <img src="ZL_Logo.jpg" alt="ZL logo">
-    <div>
-      <div class="name">Zach Lopez</div>
-      <small>Computer Science Student</small>
-    </div>
-  </div>
+<div class="container header-inner">
+<div class="logo">ZL</div>
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
 </header>
 
-<nav>
-  <a href="index.html">About</a>
-  <a href="projects.html">Projects</a>
-  <a href="experience.html">Experience</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<div class="container">
 
-<main>
-  <h2>About Me</h2>
-  <p>My name is Zach, and I am currently studying Computer Science with a focus on developing practical and user-centered 
-    software solutions. I enjoy working on web development projects, small applications, and systems that help improve 
-    efficiency and usability. I value clean design, clear functionality, and continuous learning. As I continue to expand my 
-    skills, I aim to contribute to meaningful projects and grow within the technology field. </p>
-</main>
+<section class="hero">
+<h1>Zachary Lopez</h1>
+<p>Computer Science student at UTRGV focused on programming, problem solving, and building clean, efficient software.</p>
+
+<div class="hero-buttons">
+<button class="btn" onclick="scrollToSection('projects')">View Work</button>
+<button class="btn" onclick="scrollToSection('contact')">Contact</button>
+</div>
+</section>
+
+<section id="about" class="section reveal">
+<h2>About</h2>
+<p style="max-width:600px;color:#9ca3af">
+I'm a Computer Science student at the University of Texas Rio Grande Valley focused on strengthening my programming fundamentals through projects and coursework. I enjoy understanding how systems work and continuously improving my development skills.
+</p>
+</section>
+
+<section id="projects" class="section reveal">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<a class="project" href="https://zalo0305.github.io/BudgetTracker/" target="_blank">
+<div class="project-title">Budget Tracker</div>
+<div class="project-desc">A simple budget tracking application built with HTML, CSS, and JavaScript.</div>
+<span class="tag">HTML</span>
+<span class="tag">JavaScript</span>
+<span class="tag">CSS</span>
+</a>
+
+<a class="project" href="https://zalo0305.github.io/NewSSTASH/" target="_blank">
+<div class="project-title">SStash Web Platform</div>
+<div class="project-desc">Designed and developed the official website for SStash, 
+    focusing on clean UI, responsive design, and interactive web features.</div>
+<span class="tag">HTML</span>
+<span class="tag">JavaScript</span>
+<span class="tag">CSS</span>
+</a>
+
+<a class="project" href="#" target="_blank">
+<div class="project-title">Personal Portfolio</div>
+<div class="project-desc">The very website youre on right now. A responsive personal 
+    portfolio website built with HTML, CSS, and JavaScript.</div>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</a>
+
+</div>
+</section>
+
+<section id="experience" class="section reveal">
+<h2>Experience</h2>
+
+<div class="timeline-item">
+<div class="timeline-role">Member Services Assistant — UTRGV Recreation</div>
+<div class="timeline-date">Jan 2026 — Present</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-role">Crew Member — McDonald's</div>
+<div class="timeline-date">May 2024 — Aug 2025</div>
+</div>
+
+</section>
+
+<section id="contact" class="section reveal contact">
+<h2>Contact</h2>
+<p>Email: zachary.lopez02@utrgv.edu</p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/zachary-lopez-ba3a68315/" target="_blank" style="color:#3b82f6;text-decoration:none"><img src="LinkedIn_Logo.png" alt=""></a></p>
+<p>GitHub: <a href="https://github.com/ZaLo0305" target="_blank" style="color:#3b82f6;text-decoration:none"><img src="GitHub_Logo.png" alt=""></a>;</p>
+</section>
+
+</div>
 
 <footer>
-  © 2025 Zach Lopez
+© 2026 Zachary Lopez
 </footer>
 
+
+
+
+
+
+
+<script>
+
+function scrollToSection(id){
+ document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* reveal animation */
+const reveals=document.querySelectorAll('.reveal');
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+});
+
+reveals.forEach(el=>observer.observe(el));
+
+/* cursor glow effect */
+const glow=document.getElementById('glow');
+
+document.addEventListener('mousemove',e=>{
+ glow.style.left=e.clientX+'px';
+ glow.style.top=e.clientY+'px';
+});
+
+</script>
 
 </body>
 </html>
