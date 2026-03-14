@@ -208,6 +208,48 @@ pointer-events:none;
 transform:translate(-50%,-50%);
 z-index:-1;
 }
+
+/* terminal */
+
+.terminal{
+background:#050505;
+border:1px solid #1f1f1f;
+border-radius:8px;
+margin-top:40px;
+max-width:600px;
+font-family:monospace;
+overflow:hidden;
+}
+
+.terminal-header{
+background:#111;
+padding:8px;
+display:flex;
+gap:6px;
+}
+
+.terminal-header span{
+width:10px;
+height:10px;
+border-radius:50%;
+display:inline-block;
+}
+
+.terminal-header span:nth-child(1){background:#ff5f56;}
+.terminal-header span:nth-child(2){background:#ffbd2e;}
+.terminal-header span:nth-child(3){background:#27c93f;}
+
+.terminal-body{
+padding:20px;
+color:#3b82f6;
+font-size:14px;
+}
+
+.prompt{
+color:#9ca3af;
+margin-right:6px;
+}
+
 </style>
 </head>
 
@@ -238,6 +280,15 @@ z-index:-1;
 <div class="container">
 
 <section class="hero">
+<div class="terminal">
+<div class="terminal-header">
+<span></span><span></span><span></span>
+</div>
+
+<div class="terminal-body">
+<p><span class="prompt">$</span> <span id="typing"></span></p>
+</div>
+</div>
 <h1>Zachary Lopez</h1>
 <p>Computer Science student at UTRGV focused on programming, problem solving, and building clean, efficient software.</p>
 
@@ -355,6 +406,34 @@ document.addEventListener('mousemove',e=>{
  glow.style.left=e.clientX+'px';
  glow.style.top=e.clientY+'px';
 });
+
+const text = [
+"zachary.lopez",
+"Computer Science Student @ UTRGV",
+"Skills: Python | C++ | JavaScript",
+"Status: Building cool things..."
+];
+
+let line = 0;
+let char = 0;
+const speed = 40;
+
+function typeEffect() {
+ if (line < text.length) {
+  if (char < text[line].length) {
+   document.getElementById("typing").innerHTML += text[line].charAt(char);
+   char++;
+   setTimeout(typeEffect, speed);
+  } else {
+   document.getElementById("typing").innerHTML += "<br>";
+   line++;
+   char = 0;
+   setTimeout(typeEffect, 400);
+  }
+ }
+}
+
+window.onload = typeEffect;
 
 </script>
 
